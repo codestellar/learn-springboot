@@ -20,3 +20,10 @@
 4. Implementing Services
 5. Changing Server Port
 6. removeIf, map, reduce, filter, foreach
+
+## DAY 5
+1. try, catch, finally
+2. Exception Handling
+3. Checked and Unchecked Exceptions
+4. Building Custom Exception
+5. Implementing @ControllerAdvice for GlobalExceptionHandler
