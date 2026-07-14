@@ -7,6 +7,7 @@ import com.itdc.books.services.BookService;
 
 import java.util.ArrayList;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,9 +49,10 @@ public class BooksController {
     }
 
     @DeleteMapping("/books/{id}")
-    public String deleteBook(@PathVariable int id) {
+    public ResponseEntity<String> deleteBook(@PathVariable int id) {
 
-        return bookService.deleteBook(id) ? "Book with ID " + id + " deleted successfully"
-                : "Book with ID " + id + " not found";
+        var result = bookService.deleteBook(id);
+        return result ? ResponseEntity.ok("Book with ID " + id + " deleted successfully")
+                : ResponseEntity.notFound().build();
     }
 }

@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class BookServiceImpl implements BookService {
 
@@ -27,7 +26,7 @@ public class BookServiceImpl implements BookService {
 
         books.stream()
                 .filter(book -> book.getTitle().toLowerCase().contains(filter.toLowerCase()))
-                .forEach(filteredBooks::add).s;
+                .forEach(filteredBooks::add);
 
         return filteredBooks;
     }
@@ -59,8 +58,10 @@ public class BookServiceImpl implements BookService {
     }
 
     public boolean deleteBook(int id) {
-        return books.removeIf(book -> book.getId() == id);
+            var result = books.remove(id);
+            return result != null;
+        // return books.removeIf(book -> book.getId() == id);
         // Logic to delete the book from the database or collection
-    }   
-    
+    }
+
 }
