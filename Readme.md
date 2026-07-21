@@ -27,3 +27,37 @@
 3. Checked and Unchecked Exceptions
 4. Building Custom Exception
 5. Implementing @ControllerAdvice for GlobalExceptionHandler
+
+## Day 6
+1. Dependency Injection
+2. Constructor Injection
+3. @Primary
+4. @Qualifier
+
+## Day 7
+1. Configurations and Profiles
+2. Dependency Injection Handson
+3. @Profile
+4. ./mvnw spring-boot:run -<args>
+5. Setting active profile in application.properties
+6. Working with multiple application-{profile}.properties
+
+## Day 8
+1. Adding dependencies in pom.xml
+   1. spring-boot-starter-data-jpa
+   2. sqlite-jdbc
+   3. hibernate-community-dialects
+2. Creating Entity with @Entity
+3. Adding Database configuration in application.properties
+
+````
+spring.datasource.url=jdbc:sqlite:app.db
+spring.datasource.driver-class-name=org.sqlite.JDBC
+
+# Hibernate / JPA settings
+spring.jpa.database-platform=org.hibernate.community.dialect.SQLiteDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+````
+4. Creating Repository
+5. Injecting Repository in Controller

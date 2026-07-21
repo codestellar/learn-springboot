@@ -1,4 +1,4 @@
-package com.itdc.books;
+package com.itdc.books.models;
 
 import com.itdc.books.entity.Book;
 

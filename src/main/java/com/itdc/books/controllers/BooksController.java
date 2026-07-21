@@ -1,12 +1,16 @@
-package com.itdc.books;
+package com.itdc.books.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itdc.books.entity.Book;
+import com.itdc.books.models.Ebook;
+import com.itdc.books.models.PrintedBook;
 import com.itdc.books.services.BookService;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +21,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class BooksController {
+    
+    public BookService bookService;
 
-    public final BookService bookService;
+    @Value("${spring.application.name}")
+    private String appName;
 
-    public BooksController(BookService bookService) {
+
+    @Value("${springdoc.swagger-ui.path}")
+    private String docsPath;
+
+    public BooksController(@Qualifier("upBookService") BookService bookService) {
         this.bookService = bookService;
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<String> getAppName() {
+        return ResponseEntity.ok("<h1 style='margin:auto; font-family: Arial;'>Welcome to " + appName +" </h1><a href='/docs'>Click here to access API docs.</a>");
     }
 
     @GetMapping("/books")

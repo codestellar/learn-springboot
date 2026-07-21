@@ -11,15 +11,15 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Component("punjabBookService")
-public class BookServiceImpl implements BookService {
+@Component("upBookService")
+public class BookServiceImplDev implements BookService {
 
     ArrayList<Book> books = new ArrayList<>();
 
-    public BookServiceImpl() {
-        books.add(new Ebook(1, "Ebook Title 1", "Author 1", "$10.99", "2MB", "PDF"));
-        books.add(new Ebook(2, "Ebook Title 2", "Author 2", "$12.99", "3MB", "EPUB"));
-        books.add(new Ebook(3, "Ebook Title 3", "Author 3", "$9.99", "1.5MB", "MOBI"));
+    public BookServiceImplDev() {
+        books.add(new Ebook(1, "Ebook Title 1 DEV", "Author 1", "$10.99", "2MB", "PDF"));
+        books.add(new Ebook(2, "Ebook Title 2 DEV", "Author 2", "$12.99", "3MB", "EPUB"));
+        books.add(new Ebook(3, "Ebook Title 3 DEV", "Author 3", "$9.99", "1.5MB", "MOBI"));
     }
 
     public ArrayList<Book> getBooks(String filter) {

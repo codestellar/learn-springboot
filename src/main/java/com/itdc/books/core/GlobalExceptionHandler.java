@@ -1,4 +1,4 @@
-package com.itdc.books;
+package com.itdc.books.core;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
