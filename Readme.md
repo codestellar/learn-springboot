@@ -61,3 +61,8 @@ spring.jpa.show-sql=true
 ````
 4. Creating Repository
 5. Injecting Repository in Controller
+
+## Day 9
+1. Adding Static Pages
+2. Basic Bootstrap 5
+3. Adding OneToMany, ManytoOne relationships

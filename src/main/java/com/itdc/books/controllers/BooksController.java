@@ -35,7 +35,7 @@ public class BooksController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/appName")
     public ResponseEntity<String> getAppName() {
         return ResponseEntity.ok("<h1 style='margin:auto; font-family: Arial;'>Welcome to " + appName +" </h1><a href='/docs'>Click here to access API docs.</a>");
     }

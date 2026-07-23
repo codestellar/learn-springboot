@@ -33,15 +33,19 @@ public class ProductController {
 
     // 3. READ ONE BY ID
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
-        return productRepository.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public Product getProductById(@PathVariable Long id) {
+        return productRepository.findById(id).get();
     }
+
+    @GetMapping("byPrice")
+    public List<Product> getProductsByPrice(@RequestParam double minPrice) {
+        return productRepository.findProductByPriceMoreThan(minPrice);
+    }    
 
     // 4. UPDATE
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product productDetails) {
+        
         return productRepository.findById(id)
                 .map(existingProduct -> {
                     existingProduct.setName(productDetails.getName());
